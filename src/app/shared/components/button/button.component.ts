@@ -1,12 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
+import { ButtonModule } from "primeng/button";
 
 @Component({
-  selector: 'app-button',
+  selector: "app-button",
   standalone: true,
-  imports: [],
-  templateUrl: './button.component.html',
+  imports: [ButtonModule],
+  templateUrl: "./button.component.html",
 })
 export class ButtonComponent {
-  @Input() text = '';
-  @Input() class = '';
+  @Input() text = "";
+  @Input() class = "";
+  @Input() icon = "";
 }

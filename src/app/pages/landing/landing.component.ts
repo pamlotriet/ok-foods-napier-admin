@@ -25,8 +25,8 @@ import { AuthFacade } from "../../store/facade/auth.facade";
 export class LandingComponent implements OnInit {
   parentForm!: FormGroup;
   formBuilder!: FormBuilder;
+
   authFacade = inject(AuthFacade);
-  sToken = this.authFacade.sToken;
 
   constructor(private _fromBuilder: FormBuilder) {
     this.formBuilder = _fromBuilder;
@@ -40,9 +40,6 @@ export class LandingComponent implements OnInit {
   }
 
   click() {
-    console.log(this.parentForm);
-
-   this.authFacade.authenticateUser(this.parentForm.value);
-    console.log(this.sToken());
+    this.authFacade.authenticateUser(this.parentForm.value);
   }
 }

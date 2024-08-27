@@ -8,6 +8,7 @@ module.exports = {
       red: "#EC1D25",
       green: "#00A54F",
       grey: "#F9F9F9 ",
+      smoke:"#a9abaa"
     },
     extend: {
       fontFamily: {

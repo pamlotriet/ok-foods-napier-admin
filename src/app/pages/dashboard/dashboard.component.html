@@ -1,1 +1,90 @@
-<p>dashboard works!</p>
+<div class="flex flex-col w-screen justify-center items-center">
+    <app-card class="flex justify-center items-center m-12 p-4 w-full">
+        <div class="grid grid-cols-2 mb-16  p-2 items-center rounded-xl">
+            <div class="flex flex-row m-4 ml-0 mb-8">
+                <img src="assets/images/logo.svg" class="w-72">
+            </div>
+            <div class="flex flex-row-reverse m-4 mb-8">
+                <app-button class=" rounded-full text-white text-xs bg-smoke w-28 h-8"
+                    icon="pi pi-sign-out p-1  text-sm" text="Logout"></app-button>
+            </div>
+            <hr class="flex text-smoke col-span-2 opacity-35" />
+        </div>
+        <div class="flex flex-col w-full ">
+            <ul class="flex flex-row ">
+                @for (tabItem of tabs; track tabItem; let i = $index) {
+                <li (click)="selectTab(i)"
+                    [ngClass]="{' bg-green text-white rounded-t-2xl font-bold': selectedTabIndex===i, 'cursor-pointer px-4 py-2 items-center rounded-t-2xl border-grey border-b-2':true}">
+                    <i [class]=" tabItem.icon" class="text-base mr-4 ">
+
+                    </i>
+                    <span class="text-base mr-2">{{tabItem.title}}</span>
+                </li>
+                }
+            </ul>
+            <div class="flex pt-4">
+                @switch (selectedTabIndex) {
+                @case (0) {
+                <div class="flex flex-col">
+                    <div class="flex flex-col mt-4 mb-12">
+                        <h1 class="text-green text-2xl">Manage your food specials</h1>
+                        <h2 class="text-sm">Edit, detele, update or add food specials</h2>
+                    </div>
+                    <div class="flex flex-row space-x-4 mb-12">
+                        <app-button (click)="toggleDialog()" class="rounded-2xl bg-green text-white text-sm w-28 h-8"
+                            text="Add" icon="pi pi-plus mr-2 text-sm"></app-button>
+                        <app-button (click)="deleteAll()" class="rounded-2xl bg-red text-white text-sm w-28 h-8"
+                            text="Delete All" icon="pi pi-trash mr-2 text-sm"></app-button>
+                    </div>
+                    <div class="flex">
+                        <app-table [items]="sFoodSpecials()" [headings]="foodSpecialHeadings"></app-table>
+                    </div>
+                </div>
+                <app-dialog [visible]="visible" class="bg-white" (visibleEmitter)="toggleDialog()">
+                    <p>This works</p>
+                </app-dialog>
+                }
+                @case (1) {
+                <div class="flex flex-col">
+                    <div class="flex flex-col mt-4">
+                        <h1 class="text-green text-2xl">Manage your liquor specials</h1>
+                        <h2 class="text-sm">Edit, detele, update or add liquor specials</h2>
+                    </div>
+                    <div class="flex">
+                        <app-table></app-table>
+                    </div>
+                </div>
+                }
+                @case (2) {
+                <div class="flex flex-col">
+                    <div class="flex flex-col mt-4">
+                        <h1 class="text-green text-2xl">Manage your staff</h1>
+                        <h2 class="text-sm">Edit, detele, update or add staff</h2>
+                    </div>
+                    <div class="flex">
+                        <app-table></app-table>
+                    </div>
+                </div>
+                }
+                @case (3) {
+                <div class="flex flex-col">
+                    <div class="flex flex-col mt-4">
+                        <h1 class="text-green text-2xl">Update Contact Info</h1>
+                        <h2 class="text-sm">Update your contact information</h2>
+                    </div>
+                </div>
+                }
+                @case (4) {
+                <div class="flex flex-col">
+                    <div class="flex flex-col mt-4">
+                        <h1 class="text-green text-2xl">Post Update</h1>
+                        <h2 class="text-sm">Post a general update about your store</h2>
+                    </div>
+                </div>
+                }
+                @default {<p>testing </p>}
+                }
+            </div>
+        </div>
+    </app-card>
+</div>

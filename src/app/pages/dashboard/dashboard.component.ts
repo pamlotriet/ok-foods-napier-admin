@@ -6,6 +6,7 @@ import { TableComponent } from "../../shared/components/table/table.component";
 import { SpecialsFacade } from "../../store/facade/specials.facade";
 import { ButtonComponent } from "../../shared/components/button/button.component";
 import { DialogComponent } from "../../shared/components/dialog/dialog.component";
+import { FoodSpecialsComponent } from "../food-specials/food-specials.component";
 
 @Component({
   selector: "app-dashboard",
@@ -16,6 +17,7 @@ import { DialogComponent } from "../../shared/components/dialog/dialog.component
     TableComponent,
     ButtonComponent,
     DialogComponent,
+    FoodSpecialsComponent,
   ],
   templateUrl: "./dashboard.component.html",
 })
@@ -23,7 +25,6 @@ export class DashboardComponent implements AfterContentInit, OnInit {
   selectedTabIndex = 0;
   specialsFacade = inject(SpecialsFacade);
   sFoodSpecials = this.specialsFacade.sFoodSpecials;
-  visible = false;
 
   tabs: Tabs[] = [
     { title: "Food Specials", icon: "pi pi-shop", active: false },
@@ -32,8 +33,6 @@ export class DashboardComponent implements AfterContentInit, OnInit {
     { title: "Update Contact Info", icon: "pi pi-address-book", active: false },
     { title: "Post Update", icon: "pi pi-user", active: false },
   ];
-
-  foodSpecialHeadings = ["Image", "Name", "Description", "Price", "Expiration"];
 
   ngOnInit(): void {
     this.specialsFacade.getFoodSpecials();
@@ -48,13 +47,5 @@ export class DashboardComponent implements AfterContentInit, OnInit {
 
   selectTab(index: number) {
     this.selectedTabIndex = index;
-  }
-
-  toggleDialog() {
-    this.visible = !this.visible;
-  }
-
-  deleteAll() {
-    this.specialsFacade.deleteAllFoodSpecials();
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { ButtonModule } from "primeng/button";
 
 @Component({
@@ -11,4 +11,9 @@ export class ButtonComponent {
   @Input() text = "";
   @Input() class = "";
   @Input() icon = "";
+  @Output() clicked = new EventEmitter<void>();
+
+  onClick() {
+    this.clicked.emit();
+  }
 }

@@ -7,10 +7,13 @@ module.exports = {
       black: "#000000",
       red: "#EC1D25",
       green: "#00A54F",
-      grey: "#F9F9F9 ",
+      grey: "#F9F9F9",
       smoke:"#a9abaa"
     },
     extend: {
+      borderWidth: {
+        '1': '1px', 
+      },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],

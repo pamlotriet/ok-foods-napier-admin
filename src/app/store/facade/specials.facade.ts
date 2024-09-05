@@ -1,12 +1,8 @@
 import { inject, Injectable, Signal } from "@angular/core";
-import { IAuth } from "../interfaces/auth.interface";
-import { AuthModel } from "../../shared/models/auth.model";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { Store } from "@ngrx/store";
 import * as SpecialsSelector from "../selectors/specials.selector";
-import { AuthActions } from "../actions/auth.actions";
 import { ISpecials } from "../interfaces/food.interface";
-import { Observable } from "rxjs";
 import { SpecialsModel } from "../../shared/models/specials.model";
 import { SpecialsActions } from "../actions/specials.actions";
 import { Guid } from "guid-typescript";
@@ -31,5 +27,16 @@ export class SpecialsFacade implements ISpecials {
 
   deleteAllFoodSpecials() {
     this.store.dispatch(SpecialsActions.deleteAllFoodSpecials());
+  }
+
+  uploadSpecialImage(
+    file: File,
+    product: SpecialsModel,
+    url: string,
+    token: string
+  ) {
+    this.store.dispatch(
+      SpecialsActions.startUpload({ file, product, url, token })
+    );
   }
 }

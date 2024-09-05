@@ -7,11 +7,13 @@ import { DialogModule } from "primeng/dialog";
   templateUrl: "./dialog.component.html",
 })
 export class DialogComponent {
-  @Input() visible = false;
+  @Input()
+  visible!: boolean;
   @Output() visibleEmitter = new EventEmitter<string>();
 
   toggleVisible() {
-    this.visible = !this.visible;
+    this.visible = false;
+    console.log(this, this.visible);
     this.visibleEmitter.emit();
   }
 }

@@ -25,24 +25,7 @@
             <div class="flex pt-4">
                 @switch (selectedTabIndex) {
                 @case (0) {
-                <div class="flex flex-col">
-                    <div class="flex flex-col mt-4 mb-12">
-                        <h1 class="text-green text-2xl">Manage your food specials</h1>
-                        <h2 class="text-sm">Edit, detele, update or add food specials</h2>
-                    </div>
-                    <div class="flex flex-row space-x-4 mb-12">
-                        <app-button (click)="toggleDialog()" class="rounded-2xl bg-green text-white text-sm w-28 h-8"
-                            text="Add" icon="pi pi-plus mr-2 text-sm"></app-button>
-                        <app-button (click)="deleteAll()" class="rounded-2xl bg-red text-white text-sm w-28 h-8"
-                            text="Delete All" icon="pi pi-trash mr-2 text-sm"></app-button>
-                    </div>
-                    <div class="flex">
-                        <app-table [items]="sFoodSpecials()" [headings]="foodSpecialHeadings"></app-table>
-                    </div>
-                </div>
-                <app-dialog [visible]="visible" class="bg-white" (visibleEmitter)="toggleDialog()">
-                    <p>This works</p>
-                </app-dialog>
+                <app-food-specials></app-food-specials>
                 }
                 @case (1) {
                 <div class="flex flex-col">

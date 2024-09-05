@@ -1,0 +1,15 @@
+<p-fileUpload [url]="imageUrl || ''" (onSelect)=" onSelect($event)" [multiple]="true" accept="image/*"
+    maxFileSize="1000000" [showUploadButton]="false" [showCancelButton]="false" chooseLabel=" Choose"
+    chooseIcon="pi pi-file-import" previewWidth="50" styleClass="custom-upload-button">
+    <ng-template pTemplate="content">
+        @if (!uploadedFile && imageUrl === '') {
+        <p>Drag and drop files here to upload.</p>
+        }
+        @if (imageUrl && !uploadedFile) {
+        <div class="flex flex-row items-center">
+            <img [src]="imageUrl" width="50" class="shadow-4 rounded-full h-16 w-16 mr-4" />
+            <p>{{uploadedFileName}}</p>
+        </div>
+        }
+    </ng-template>
+</p-fileUpload>

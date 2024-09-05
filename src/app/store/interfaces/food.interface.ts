@@ -7,4 +7,10 @@ export interface ISpecials {
   deleteSpecialItemById: (id: Guid) => void;
   deleteAllFoodSpecials: () => void;
   getFoodSpecials: () => void;
+  uploadSpecialImage: (
+    file: File,
+    product: SpecialsModel,
+    url: string,
+    token: string
+  ) => void;
 }

@@ -42,6 +42,15 @@ const reducer = createReducer(
     foodSpecials: [],
     isLoading: false,
     isLoggedIn: false,
+  })),
+  on(SpecialsActions.startUpload, (state, { file }) => ({
+    ...state,
+  })),
+  on(SpecialsActions.uploadSuccess, (state) => ({
+    ...state,
+  })),
+  on(SpecialsActions.uploadFailure, (state, { fileName, error }) => ({
+    ...state,
   }))
 );
 

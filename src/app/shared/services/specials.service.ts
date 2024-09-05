@@ -24,9 +24,18 @@ export class SpecialsService {
     return this.http.request("delete", url);
   }
 
+  getFoodSpecialsItemById(id: Guid) {
+    return this.http.get<SpecialsModel>(`http://localhost:5031/specials/${id}`);
+  }
+
   deleteAllFoodSpecials() {
-    return this.http.delete(
-      "http://localhost:5031/specials/delete-all/food"
+    return this.http.delete("http://localhost:5031/specials/delete-all/food");
+  }
+
+  uploadProduct(product: SpecialsModel): Observable<SpecialsModel> {
+    return this.http.post<SpecialsModel>(
+      "http://localhost:5031/specials",
+      product
     );
   }
 }

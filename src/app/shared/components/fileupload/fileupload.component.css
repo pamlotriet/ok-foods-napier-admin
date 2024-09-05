@@ -1,0 +1,27 @@
+::ng-deep .custom-upload-button .p-fileupload-choose {
+    background-color: #00A54F !important;
+    color: #fff !important;
+    border-radius: 30px !important;
+    border: none !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important;
+    font-weight: 0 !important;
+    padding: 2px;
+    width: 112px;
+    height: 32px;
+}
+
+::ng-deep .custom-upload-button .p-fileupload-choose .p-button-icon {
+    padding-left: 8px !important;
+    flex: none;
+    font-weight: 400 !important;
+}
+
+::ng-deep .p-button-label {
+    flex: none;
+    font-weight: 400 !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+::ng-deep .p-fileupload-content {
+    background: #F9F9F9;
+}
